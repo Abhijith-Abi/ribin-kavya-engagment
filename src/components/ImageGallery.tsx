@@ -13,34 +13,34 @@ import FloatingHearts from "./FloatingHearts";
 
 const images = [
     {
-        src: "/images/couple.jpg",
-        alt: "Couple Moment 1",
-        aspect: "aspect-[3/4]",
-    },
-    {
         src: "/images/hero_invitation.jpg",
-        alt: "Couple Moment 2",
-        aspect: "aspect-[3/2]",
-    },
-    {
-        src: "/images/floral.jpg",
-        alt: "Couple Moment 3",
+        alt: "Our Beautiful Moment 1",
         aspect: "aspect-[3/4]",
     },
     {
-        src: "/images/floral.jpg",
-        alt: "Couple Moment 4",
-        aspect: "aspect-[4/3]",
+        src: "/images/gallery-moment-1.jpg",
+        alt: "Our Beautiful Moment 1",
+        aspect: "aspect-[3/4]",
+    },
+    {
+        src: "/images/gallery-moment-2.jpg",
+        alt: "Our Beautiful Moment 2",
+        aspect: "aspect-[3/4]",
+    },
+    {
+        src: "/images/gallery-moment-3.jpg",
+        alt: "Our Beautiful Moment 3",
+        aspect: "aspect-[3/4]",
+    },
+    {
+        src: "/images/gallery-moment-4.jpg",
+        alt: "Our Beautiful Moment 4",
+        aspect: "aspect-[3/4]",
     },
     {
         src: "/images/couple.jpg",
-        alt: "Couple Moment 5",
+        alt: "Our Beautiful Moment 5",
         aspect: "aspect-[3/4]",
-    },
-    {
-        src: "/images/hero_invitation.jpg",
-        alt: "Couple Moment 6",
-        aspect: "aspect-video",
     },
 ];
 
