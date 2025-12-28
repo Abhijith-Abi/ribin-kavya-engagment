@@ -16,6 +16,14 @@
     --font-bodoni: var(--font-bodoni);
 }
 
+:root {
+    color-scheme: light;
+}
+
+html {
+    background-color: #ffffff;
+}
+
 body {
     background: linear-gradient(to bottom, #ffffff, #faf4e6);
     color: var(--color-charcoal);
