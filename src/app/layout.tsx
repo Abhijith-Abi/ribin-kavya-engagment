@@ -39,6 +39,21 @@ const pinyon = Pinyon_Script({
 export const metadata: Metadata = {
     title: "Ribin & Kavya | Engagement Invitation",
     description: "Join us for our engagement celebration.",
+    icons: {
+        icon: "/images/hero_invitation.jpg",
+    },
+    openGraph: {
+        title: "Ribin & Kavya | Engagement Invitation",
+        description: "Join us for our engagement celebration.",
+        images: [
+            {
+                url: "/images/hero_invitation.jpg",
+                width: 800,
+                height: 600,
+                alt: "Ribin & Kavya Engagement",
+            },
+        ],
+    },
 };
 
 export default function RootLayout({
