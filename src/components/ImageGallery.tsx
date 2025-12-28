@@ -23,12 +23,12 @@ const images = [
         aspect: "aspect-[3/2]",
     },
     {
-        src: "/images/couple.jpg",
+        src: "/images/floral.jpg",
         alt: "Couple Moment 3",
         aspect: "aspect-[3/4]",
     },
     {
-        src: "/images/hero_invitation.jpg",
+        src: "/images/floral.jpg",
         alt: "Couple Moment 4",
         aspect: "aspect-[4/3]",
     },
