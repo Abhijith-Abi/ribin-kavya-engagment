@@ -1,17 +1,48 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+    motion,
+    useScroll,
+    useTransform,
+    AnimatePresence,
+} from "framer-motion";
 import { ChevronDown, Heart, Gem } from "lucide-react";
 import FloatingHearts from "./FloatingHearts";
 
+const heroImages = [
+    "/images/couple.jpg",
+    "/images/floral.jpg",
+    "/images/gallery-moment-1.jpg",
+    "/images/gallery-moment-2.jpg",
+    "/images/gallery-moment-3.jpg",
+    "/images/gallery-moment-4.jpg",
+    "/images/hero_invitation.jpg",
+];
+
 const HeroSection = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
     });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * heroImages.length);
+                } while (newIndex === prevIndex);
+                return newIndex;
+            });
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -21,22 +52,31 @@ const HeroSection = () => {
             ref={containerRef}
             className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden"
         >
-            {/* Background Image with Parallax Effect */}
-            <motion.div
-                style={{ y, opacity }}
-                className="absolute inset-0 -z-10"
-            >
+            {/* Background Image Slideshow with Parallax Effect */}
+            <motion.div style={{ y, opacity }} className="absolute inset-0">
                 {/* Darker golden overlay for better text contrast */}
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10" />
                 <div className="absolute inset-0 bg-gold/10 z-10 mix-blend-overlay" />
-                <Image
-                    src="/images/hero_invitation.jpg"
-                    alt="Engagement Couple"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                    quality={100}
-                />
+
+                <AnimatePresence mode="popLayout">
+                    <motion.div
+                        key={currentImageIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5 }}
+                        className="absolute inset-0"
+                    >
+                        <Image
+                            src={heroImages[currentImageIndex]}
+                            alt="Engagement Couple"
+                            fill
+                            className="object-cover object-center"
+                            priority
+                            quality={100}
+                        />
+                    </motion.div>
+                </AnimatePresence>
             </motion.div>
 
             {/* Content */}
@@ -48,7 +88,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="font-bodoni uppercase tracking-[0.3em] text-sm md:text-base text-gold-light font-semibold drop-shadow-sm"
+                    className="font-bodoni uppercase tracking-[0.3em] text-sm md:text-base text-white font-semibold drop-shadow-md"
                 >
                     Save The Date
                 </motion.div>
