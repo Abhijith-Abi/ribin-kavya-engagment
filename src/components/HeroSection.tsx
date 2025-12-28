@@ -24,8 +24,9 @@ const HeroSection = () => {
             {/* Background Image with Parallax Effect */}
             <motion.div style={{ y, opacity }} className="absolute inset-0">
                 {/* Darker golden overlay for better text contrast */}
-                <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10" />
-                <div className="absolute inset-0 bg-gold/10 z-10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-black/30 mix-blend-multiply z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/30 z-10" />
+                <div className="absolute inset-0 bg-gold/5 z-10 mix-blend-overlay" />
                 <Image
                     src="/images/hero_invitation.jpg"
                     alt="Engagement Couple"
@@ -37,25 +38,15 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Content */}
-            <div className="z-20 text-center px-4 flex flex-col items-center gap-6">
+            <div className="z-20 text-center px-4 flex flex-col items-center gap-4 sm:gap-6 mt-16 sm:mt-0">
                 {/* Animated Floating Elements */}
                 <FloatingHearts />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="font-bodoni uppercase tracking-[0.3em] text-sm md:text-base text-white font-semibold drop-shadow-md"
-                >
+                <div className="font-bodoni uppercase tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/90 font-semibold drop-shadow-md">
                     Save The Date
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.4, type: "spring" }}
-                    className="flex flex-col items-center gap-2"
-                >
+                <div className="flex flex-col items-center gap-2">
                     {/* Ring Icon Animation */}
                     <motion.div
                         animate={{ rotate: [0, 10, -10, 0] }}
@@ -64,28 +55,27 @@ const HeroSection = () => {
                             repeat: Infinity,
                             ease: "easeInOut",
                         }}
-                        className="text-gold mb-4 filter drop-shadow-lg"
+                        className="text-gold mb-2 sm:mb-4 filter drop-shadow-lg"
                     >
-                        <Gem size={48} strokeWidth={1} />
+                        <Gem
+                            size={40}
+                            className="sm:w-12 sm:h-12"
+                            strokeWidth={1}
+                        />
                     </motion.div>
 
-                    <h1 className="text-7xl md:text-9xl font-pinyon text-gold-gradient drop-shadow-2xl leading-tight py-2">
+                    <h1 className="text-5xl sm:text-7xl md:text-9xl font-pinyon text-gold-gradient drop-shadow-2xl leading-tight py-2">
                         Ribin
-                        <span className="block text-4xl md:text-6xl font-bodoni italic my-4 text-white/90">
+                        <span className="block text-3xl sm:text-4xl md:text-6xl font-bodoni italic my-2 sm:my-4 text-white/95 drop-shadow-lg">
                             &
                         </span>
                         Kavya
                     </h1>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    className="font-bodoni text-2xl md:text-3xl italic tracking-wide mt-4 text-gold-light"
-                >
+                <div className="font-bodoni text-xl sm:text-2xl md:text-3xl italic tracking-wide mt-2 sm:mt-4 text-gold-light drop-shadow-md">
                     Are getting engaged
-                </motion.div>
+                </div>
             </div>
 
             {/* Scroll indicator */}
