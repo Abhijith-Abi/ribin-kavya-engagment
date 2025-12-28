@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import LoveLoader from "@/components/LoveLoader";
 
 const bodoni = Bodoni_Moda({
     variable: "--font-bodoni",
@@ -66,6 +67,7 @@ export default function RootLayout({
             <body
                 className={`${cinzel.variable} ${greatVibes.variable} ${montserrat.variable} ${pinyon.variable} ${bodoni.variable} antialiased bg-soft-white text-charcoal font-montserrat`}
             >
+                <LoveLoader />
                 <SmoothScroll>{children}</SmoothScroll>
             </body>
         </html>
